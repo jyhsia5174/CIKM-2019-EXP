@@ -51,5 +51,8 @@ Example:
 Select best paramter with lowest mse score, then we have lowest mse  1.2092 with l = 0.1 and iteration 34.
 
 ## Filter yh.all.tr.ps
-
-## use ocmf to filter yh.all.tr.ps with 2.5 threshold
+```shell
+cd ocmf
+make
+./filter.sh
+```
