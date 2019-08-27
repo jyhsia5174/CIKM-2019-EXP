@@ -1,9 +1,10 @@
-# Grid model
+# Filter yh.tr to yh.f.tr
 
 ## Modify yh.tr
 Input: yh.tr 
 Output: yh.all.tr.ps
 ```shell
+ln -s ../split-data/yh.tr ./
 awk '{printf "%s\t1\n", $0}' yh.tr > yh.all.tr.ps
 ```
 
@@ -21,7 +22,7 @@ Output: *.logs
 cd grid-code
 make
 cd ..
-ln -s grid-code/train 
+ln -s grid-code/train ./ 
 ./grid.sh
 ```
 
@@ -51,8 +52,11 @@ Example:
 Select best paramter with lowest mse score, then we have lowest mse  1.2092 with l = 0.1 and iteration 34.
 
 ## Filter yh.all.tr.ps
+Config filter.sh with previous selected parameters. Ex: l = 0.1 and  t = 34
 ```shell
 cd ocmf
 make
 ./filter.sh
-```
+cp yh.f.tr ../../split-data/
+``
+`
