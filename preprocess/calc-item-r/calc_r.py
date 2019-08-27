@@ -4,7 +4,7 @@ import sys
 def logit(x):
     return math.log(x / (1.0-x))
 
-def __name__ == '__main__':
+if __name__ == '__main__':
     rf = open(sys.argv[1], 'r')
     app_cnt = {}
     pos_cnt = 0.0

@@ -5,7 +5,7 @@ def logit(x):
     print(x)
     return math.log(x / (1.0-x))
 
-def __name__ == '__main__':
+if __name__ == '__main__':
     rf = open(sys.argv[1], 'r')
     pos_cnt = 0.0
     neg_cnt = 0.0

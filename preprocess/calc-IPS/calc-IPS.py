@@ -2,6 +2,7 @@ import sys
 
 def get_PY(va):
     rf = open(va, 'r')
+    label_cnt = {}
     sample = 0.0
     for line in rf:
         toks = line.strip().split()
@@ -11,7 +12,7 @@ def get_PY(va):
             label_cnt.setdefault(click, 0.0)
             label_cnt[click] += 1
             sample += 1
-    print sample, label_cnt['0'], label_cnt['1']
+    print( sample, label_cnt['0'], label_cnt['1'] )
     for key, val in label_cnt.iteritems():
         label_cnt[key] = val / sample
     return label_cnt
@@ -20,6 +21,7 @@ def get_YO(tr):
     rf = open(tr, 'r')
     max_u = 0.0
     max_i = 0.0
+    label_cnt = {}
     for line in rf:
         toks = line.strip().split()
         labels = toks[0].strip(',').split(',')
@@ -29,9 +31,10 @@ def get_YO(tr):
             label_cnt[click] += 1
             max_i = max(max_i, int(item) + 1)
         max_u += 1
-    print max_i, max_u
+    print( max_i, max_u )
     for key, val in label_cnt.iteritems():
         label_cnt[key] = val / (max_i * max_u)
+    return label_cnt
 
 
 if __name__ == '__main__':
