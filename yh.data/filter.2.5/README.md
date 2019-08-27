@@ -55,6 +55,7 @@ Select best paramter with lowest mse score. In the demo case, we have lowest mse
 Config filter.sh with previous selected parameters. Ex: l = 0.1 and  t = 34
 ```shell
 cd ocmf
+vim filter.sh # Config best parameters
 make
 ./filter.sh
 cp yh.f.tr ../../split-data/
