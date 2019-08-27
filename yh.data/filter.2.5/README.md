@@ -49,12 +49,13 @@ Example:
 > ==> 1.best_score <==
 > 1	1.5184
 
-Select best paramter with lowest mse score, then we have lowest mse  1.2092 with l = 0.1 and iteration 34.
+Select best paramter with lowest mse score. In the demo case, we have lowest mse  1.2082 with l = 0.1 and iteration 34.
 
 ## Filter yh.all.tr.ps
 Config filter.sh with previous selected parameters. Ex: l = 0.1 and  t = 34
 ```shell
 cd ocmf
+vim filter.sh # Config best parameters
 make
 ./filter.sh
 cp yh.f.tr ../../split-data/
