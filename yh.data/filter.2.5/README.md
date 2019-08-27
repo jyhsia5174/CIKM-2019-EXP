@@ -33,7 +33,7 @@ Output: *.merges
 head *.best_score
 ```
 Example:
-\`==> 0.0001.best_score <==
+==> 0.0001.best_score <==
 200	1.6058
 
 ==> 0.001.best_score <==
@@ -47,7 +47,7 @@ Example:
 
 ==> 1.best_score <==
 1	1.5184
-\`
+
 Select best paramter with lowest mse score, then we have lowest mse  1.2092 with l = 0.1 and iteration 34.
 
 ## Filter yh.all.tr.ps
