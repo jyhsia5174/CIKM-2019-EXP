@@ -36,9 +36,9 @@ class Parameter {
 public:
     ImpFloat omega, omega_neg, lambda, r;
     ImpInt nr_pass, k, nr_threads;
-    string model_path, predict_path;
-    bool self_side, freq, item_weight;
-    Parameter():omega(0), omega_neg(1), lambda(4), r(-1), nr_pass(20), k(4), nr_threads(1), self_side(true), freq(false), item_weight(false) {};
+    string model_path, predict_path, item_r_path;
+    bool self_side, freq, item_weight, item_r;
+    Parameter():omega(0), omega_neg(1), lambda(4), r(-1), nr_pass(20), k(4), nr_threads(1), self_side(true), freq(false), item_weight(false), item_r(true) {};
 };
 
 class Node {
@@ -110,6 +110,8 @@ private:
     vector<Vec> W, H, P, Q, Pva, Qva;
     Vec at, bt;
     Vec a, b, va_loss_prec, va_loss_ndcg, sa, sb, Gneg, item_w;
+    Vec item_r;
+    ImpDouble r_sum=0;
     ImpDouble gauc=0, gauc_all=0;
     ImpDouble auc = 0;
     ImpDouble L_pos; 
@@ -124,6 +126,7 @@ private:
     void init_y_tilde();
     void init_L_pos();
     void init_expyy();
+    void init_item_r(string &item_r_path);
     ImpDouble calc_cross(const ImpLong &i, const ImpLong &j);
 
     void update_side(const bool &sub_type, const Vec &S, const Vec &Q1, Vec &W1, const vector<Node*> &X12, Vec &P1);
@@ -136,16 +139,9 @@ private:
     ImpDouble pq(const ImpInt &i, const ImpInt &j,const ImpInt &f1, const ImpInt &f2);
     ImpDouble norm_block(const ImpInt &f1,const ImpInt &f2);
 
-    ImpDouble l_pos_grad(const YNode* y, const ImpDouble iw);
+    ImpDouble l_pos_grad(const YNode* y, const ImpDouble iw, const ImpDouble ri);
     ImpDouble l_pos_hessian(const YNode* y, const ImpDouble iw);
 
-    void solve_side(const ImpInt &f1, const ImpInt &f2);
-    void gd_side(const ImpInt &f1, const Vec &W1, const Vec &Q1, Vec &G);
-    void gd_pos_side(const ImpInt &f1, const Vec &W1, const Vec &Q1, Vec &G);
-    void gd_neg_side(const ImpInt &f1, const Vec &W1, const Vec &Q1, Vec &G);
-    void hs_side(const ImpLong &m1, const ImpLong &n1, const Vec &S, Vec &HS, const Vec &Q1, const vector<Node*> &UX, const vector<YNode*> &Y, Vec &Hv_);
-    void hs_pos_side(const ImpLong &m1, const ImpLong &n1, const Vec &S, Vec &HS, const Vec &Q1, const vector<Node*> &UX, const vector<YNode*> &Y, Vec &Hv_);
-    void hs_neg_side(const ImpLong &m1, const ImpLong &n1, const Vec &S, Vec &HS, const Vec &Q1, const vector<Node*> &UX, const vector<YNode*> &Y, Vec &Hv_);
 
     void solve_cross(const ImpInt &f1, const ImpInt &f2);
     void gd_cross(const ImpInt &f1, const Vec &Q1, const Vec &W1, Vec &G);
@@ -160,7 +156,7 @@ void line_search(const ImpInt &f1, const ImpInt &f2, Vec &S1, const Vec &Q1, con
 
     void calc_delta_y_side(vector<YNode*> &Y, const ImpLong m1, const Vec &XS, const Vec &Q);
     void calc_delta_y_cross(vector<YNode*> &Y, const ImpLong m1, const Vec &XS, const Vec &Q);
-    ImpDouble calc_L_pos(vector<YNode*> &Y, const ImpLong m1, const ImpDouble theta);
+    ImpDouble calc_L_pos(vector<YNode*> &Y, const ImpLong m1, const ImpDouble theta, const ImpInt & f1);
 
     void cache_sasb();
 

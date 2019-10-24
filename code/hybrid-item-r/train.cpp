@@ -168,6 +168,14 @@ Option parse_option(int argc, char **argv)
         else if(args[i].compare("--weighted") == 0){
             option.param->item_weight = true;
         }
+        else if(args[i].compare("-item-r") == 0){
+            option.param->item_r = true;
+            if(i == argc-1)
+                throw invalid_argument("need to specify path after -p");
+            i++;
+
+            option.param->item_r_path = string(args[i]);
+        }
         else
         {
             break;
