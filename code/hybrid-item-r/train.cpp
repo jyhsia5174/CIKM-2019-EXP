@@ -212,7 +212,7 @@ int main(int argc, char *argv[])
         V->transY(U->Y);
         V->split_fields();
 
-        assert(U->n == V->m);
+        //assert(U->n == V->m);
 
         if (!Ut->file_name.empty()) {
             Ut->read(true, U->Ds.data());
