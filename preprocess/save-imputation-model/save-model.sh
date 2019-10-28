@@ -1,6 +1,5 @@
 #!/bin/bash
 
-sm_rate=1
 k=16
 l=4
 t=10

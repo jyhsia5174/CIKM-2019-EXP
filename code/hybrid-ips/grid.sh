@@ -16,7 +16,7 @@ for k in 8 16 32 64
 do
     for l in 1 2 4 8 16 32 64 128 
     do
-        cmd='./trian'
+        cmd='./train'
         cmd="$cmd -k $k"
         cmd="$cmd -l $l"
         cmd="$cmd -t $t"

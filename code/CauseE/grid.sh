@@ -18,7 +18,7 @@ do
     do
         for ldiff in 0.0625 0.03125 0.015625 0.0078125 0.00390625 0.001953125 0.0009765625 
         do
-            cmd='./trian'
+            cmd='./train'
             cmd="$cmd -k $k"
             cmd="$cmd -l $l"
             cmd="$cmd -ldiff $ldiff"
@@ -36,4 +36,4 @@ done
 }
 
 task
-#task | xargs -d '\n' -P $num_core -I {} sh -c {} &
+#task | xargs -d '\n' -P 5 -I {} sh -c {} &

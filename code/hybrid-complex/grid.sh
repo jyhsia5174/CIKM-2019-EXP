@@ -19,7 +19,7 @@ do
     do
         for w in 0.00390625 0.0009765625 0.000244140625  
         do
-            cmd='./trian'
+            cmd='./train'
             cmd="$cmd -k $k"
             cmd="$cmd -l $l"
             cmd="$cmd -t $t"
