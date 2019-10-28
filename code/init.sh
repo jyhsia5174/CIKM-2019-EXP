@@ -49,3 +49,43 @@ ln -s ${src}/trva.100.remap ${des}/
 ln -s ${src}/te.1.remap ${des}/
 
 ln -s ${src_pre}/calc-item-r/tr.1.remap.r_score ${des}/tr.r_score
+
+# For new-r
+des=new-r
+ln -s ${src}/item ${des}/
+
+ln -s ${src}/tr.100.remap ${des}/
+ln -s ${src}/va.1.remap ${des}/
+
+ln -s ${src}/trva.100.remap ${des}/
+ln -s ${src}/te.1.remap ${des}/
+
+# For FFM-Sc
+des=FFM-Sc
+ln -s ${src}/item ${des}/
+
+ln -s ${src}/tr.99.remap ${des}/
+ln -s ${src}/va.1.remap ${des}/
+
+ln -s ${src}/trva.99.remap ${des}/
+ln -s ${src}/te.1.remap ${des}/
+
+# For FFM-St
+des=FFM-St
+ln -s ${src}/item ${des}/
+
+ln -s ${src}/tr.1.remap ${des}/
+ln -s ${src}/va.1.remap ${des}/
+
+ln -s ${src}/trva.1.remap ${des}/
+ln -s ${src}/te.1.remap ${des}/
+
+# For FFM-Sc_St
+des=FFM-Sc_St
+ln -s ${src}/item ${des}/
+
+ln -s ${src}/tr.100.remap ${des}/
+ln -s ${src}/va.1.remap ${des}/
+
+ln -s ${src}/trva.100.remap ${des}/
+ln -s ${src}/te.1.remap ${des}/
