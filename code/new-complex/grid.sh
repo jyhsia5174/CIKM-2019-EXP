@@ -7,7 +7,7 @@ ns='--ns'
 tr='tr.100.remap'
 te='va.1.remap'
 item='item'
-imp='model'
+imp='tr.model'
 
 logs_pth='logs'
 mkdir -p $logs_pth
