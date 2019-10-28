@@ -6,6 +6,10 @@ src=../../yh.data/convert-format/remap
 des=calc-IPS
 ln -s ${src}/tr.100.remap ${des}/
 ln -s ${src}/tr.1.remap ${des}/
+ln -s ${src}/va.1.remap ${des}/
+ln -s ${src}/trva.100.remap ${des}/
+ln -s ${src}/trva.1.remap ${des}/
+ln -s ${src}/te.1.remap ${des}/
 
 # For item-r
 des=calc-item-r

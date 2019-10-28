@@ -2,10 +2,11 @@
 
 t=100
 wn=1
+w=0
 ns='--ns'
 
 tr='tr.99.remap.ips'
-te='va.1.remap'
+te='va.1.remap.ips'
 item='item'
 
 logs_pth='logs'
@@ -22,6 +23,7 @@ do
         cmd="$cmd -t $t"
         cmd="$cmd -c 5"
         cmd="$cmd -wn ${wn}"
+        cmd="$cmd -w ${w}"
         cmd="$cmd $ns"
         cmd="$cmd -p ${te}"
         cmd="$cmd ${item} ${tr}"
