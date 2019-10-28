@@ -1,6 +1,6 @@
 #!/bin/bash
 
-t=100
+t=50
 ns='--ns'
 
 tr='tr.99.remap'
@@ -14,9 +14,9 @@ mkdir -p $logs_pth
 task(){
 for k in 8 16 32 64 
 do
-    for l in 0.0625 0.03125 0.015625 0.0078125 0.00390625 0.001953125 0.0009765625 
+    for l in 1 1e-1 1e-2 1e-3 1e-4 1e-5 1e-6
     do
-        for ldiff in 0.0625 0.03125 0.015625 0.0078125 0.00390625 0.001953125 0.0009765625 
+        for ldiff in 1 1e-1 1e-2 1e-3 1e-4 1e-5 1e-6 
         do
             cmd='./train'
             cmd="$cmd -k $k"
