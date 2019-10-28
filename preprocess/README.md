@@ -45,3 +45,16 @@ cd calc-r
 
 ## Generate impuation model (grid-and-save-imputation-model)
 
+Get best imputation model parameter
+```shell
+cd save-imputation-model
+./grid.sh
+```
+
+We can sort the logs files to get the best parameter. Then, please config save-model.sh
+
+```shell
+vim save-model.sh # config: k, l and t 
+./save-model.sh
+```
+
