@@ -1,10 +1,15 @@
 #! /bin/bash
 
+# Source blas
+source source-blas.sh
+
+# ==================== #
+
 # Split data 
-./yh.data/split-data/split.sh
+(cd yh.data/split-data/ &&  ./split.sh)
 
 # Filter data
-./yh.data/filter.2.5/do-filter.sh
+(cd yh.data/filter.2.5 && ./do-filter.sh)
 
 # Convert-format
 ./yh.data/convert-format/setting.sh
@@ -12,59 +17,71 @@
 # ==================== #
 
 # Link neccessary files
-./preprocess/init.sh
+(cd preprocess && ./init.sh)
 
 # calc-IPS
-./preprocess/calc-IPS/calc.sh
+(cd preprocess/calc-IPS && ./calc.sh)
 
 # calc itemwise r
-./preprocess/calc-item-r/calc.sh
+(cd preprocess/calc-item-r && ./calc.sh)
 
 # calc-r
-./preprocess/calc-r/calc.sh
+(cd preprocess/calc-r && ./calc.sh)
 
 # save imputation model
-./preprocess/save-imputation-model/save-model.sh
-
+(cd preprocess/save-imputation-model && make clean all && ./save-model.sh)
 
 # ==================== #
 
 # Link neccessary files
-./code/init.sh
+(cd code && ./init.sh)
 
-# Source blas
-. ./code/source-blas.sh
+# Make 
+make -C code/CauseE clean all&
+make -C code/FFM-Sc clean all&
+make -C code/FFM-St clean all&
+make -C code/FFM-Sc_St clean all&
+make -C code/IPS clean all&
+make -C code/new-complex clean all&
+make -C code/new-item-r clean all&
+make -C code/new-r clean all&
+wait
 
 # CausE
-make -C code/CauseE clean all
-./code/CauseE/do-test.sh
+(cd code/CauseE && do-test.sh)&
 
 # FFM-Sc
-make -C code/FFM-Sc clean all
-./code/FFM-Sc/do-test.sh
+(cd code/FFM-Sc && ./do-test.sh)&
 
 # FFM-St
-make -C code/FFM-St clean all
-./code/FFM-St/do-test.sh
+(cd code/FFM-St && ./do-test.sh)&
 
 # FFM-Sc_St
-make -C code/FFM-Sc_St clean all
-./code/FFM-Sc_St/do-test.sh
+(cd code/FFM-Sc_St && ./do-test.sh)&
 
 # IPS
-make -C code/IPS clean all
-./code/IPS/do-test.sh
+(cd code/IPS && ./do-test.sh)&
 
 # new-complex
-make -C code/new-complex clean all
-./code/new-complex/do-test.sh
+(cd code/new-complex && ./do-test.sh)&
 
 # new item r
-make -C code/new-item-r clean all
-./code/new-item-r/do-test.sh
+(cd code/new-item-r && ./do-test.sh)&
 
 # new r
-make -C code/new-r clean all
-./code/new-r/do-test.sh
+(cd code/new-r && ./do-test.sh)&
 
+wait
+ ==================== #
 
+show-test(){
+for folder in CauseE FFM-Sc FFM-Sc_St FFM-St IPS new-complex new-item-r new-r 
+do
+    echo '===================='
+    echo $folder
+    tail -n2 code/$folder/test-logs/* | awk '{ if(NR == 1)  printf "logloss: %s ", $NF; else printf "auc: %s\n", $NF}' 
+done
+echo '===================='
+}
+
+show-test | less

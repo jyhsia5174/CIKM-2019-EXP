@@ -32,4 +32,4 @@ echo $cmd
 }
 
 task
-task | xargs -d '\n' -P 5 -I {} sh -c {} &
+task | xargs -d '\n' -P 5 -I {} sh -c {} 

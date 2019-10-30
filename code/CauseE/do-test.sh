@@ -11,7 +11,7 @@ logs_pth='test-logs'
 mkdir -p $logs_pth
 
 task(){
-k=8
+k=32
 l=1e-5
 ldiff=1e-4
 t=50
@@ -31,4 +31,4 @@ echo $cmd
 }
 
 task
-#task | xargs -d '\n' -P 5 -I {} sh -c {} &
+task | xargs -d '\n' -P 5 -I {} sh -c {} 
