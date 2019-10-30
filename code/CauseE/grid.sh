@@ -1,6 +1,6 @@
 #!/bin/bash
 
-t=50
+t=100
 ns='--ns'
 
 tr='tr.99.remap'
@@ -36,4 +36,4 @@ done
 }
 
 task
-#task | xargs -d '\n' -P 5 -I {} sh -c {} &
+task | xargs -d '\n' -P 5 -I {} sh -c {} &

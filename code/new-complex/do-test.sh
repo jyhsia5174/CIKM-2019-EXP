@@ -12,10 +12,10 @@ logs_pth='test-logs'
 mkdir -p $logs_pth
 
 task(){
-t=100
-k=8
-l=128
-w=0.000244140625
+t=4
+k=64
+l=2
+w=0.00001525878906
 
 cmd='./train'
 cmd="$cmd -k $k"
@@ -33,4 +33,4 @@ echo $cmd
 }
 
 task
-#task | xargs -d '\n' -P $num_core -I {} sh -c {} &
+task | xargs -d '\n' -P 5 -I {} sh -c {} &

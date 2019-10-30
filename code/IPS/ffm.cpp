@@ -159,7 +159,7 @@ void ImpData::read(bool has_label, const ImpLong *ds) {
                 labels >> idx >> dummy >> label >> dummy >> ips;
                 M[nnz_j-1].fid = (label > 0) ? 1 : -1;
                 M[nnz_j-1].idx = idx;
-                M[nnz_j-1].ips = ips;
+                M[nnz_j-1].ips = 1.0/ips;
             }
             nny[i] = nnz_j;
         }
