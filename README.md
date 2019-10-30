@@ -1,6 +1,15 @@
 # Improving Ad Click Prediction by Considering Non-displayed Events 
 
-## data generation
+
+## Reproduce usage
+
+- Go to yh.data/split-data folder. Downloads Yahoo music R3 and extract files to that folder.
+- Install open blas
+- ./exp.sh
+
+## Concept of Each Folder
+
+### data generation
 
 We first need to convert Yahoo Music data.
 
@@ -9,7 +18,7 @@ cd yh.data
 vim README.md
 ```
 
-## preprocess
+### preprocess
 
 After we have converted data, some files should be generated before training.
 
@@ -18,7 +27,7 @@ cd preprocess
 vim README.md
 ```
 
-## code
+### code
 
 After having neccesary files and **converted** data, we can train and conduct performance evaluation by grid.sh & do-test.sh
 
