@@ -12,7 +12,7 @@ source source-blas.sh
 (cd yh.data/filter.2.5 && ./do-filter.sh)
 
 # Convert-format
-./yh.data/convert-format/setting.sh
+(cd yh.data/convert-format && ./setting.sh)
 
 # ==================== #
 
@@ -48,31 +48,31 @@ make -C code/new-r clean all&
 wait
 
 # CausE
-(cd code/CauseE && do-test.sh)&
+(cd code/CauseE && ./do-test.sh)
 
 # FFM-Sc
-(cd code/FFM-Sc && ./do-test.sh)&
+(cd code/FFM-Sc && ./do-test.sh)
 
 # FFM-St
-(cd code/FFM-St && ./do-test.sh)&
+(cd code/FFM-St && ./do-test.sh)
 
 # FFM-Sc_St
-(cd code/FFM-Sc_St && ./do-test.sh)&
+(cd code/FFM-Sc_St && ./do-test.sh)
 
 # IPS
-(cd code/IPS && ./do-test.sh)&
+(cd code/IPS && ./do-test.sh)
 
 # new-complex
-(cd code/new-complex && ./do-test.sh)&
+(cd code/new-complex && ./do-test.sh)
 
 # new item r
-(cd code/new-item-r && ./do-test.sh)&
+(cd code/new-item-r && ./do-test.sh)
 
 # new r
-(cd code/new-r && ./do-test.sh)&
+(cd code/new-r && ./do-test.sh)
 
-wait
- ==================== #
+
+# ==================== #
 
 show-test(){
 for folder in CauseE FFM-Sc FFM-Sc_St FFM-St IPS new-complex new-item-r new-r 
