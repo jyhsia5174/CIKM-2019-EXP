@@ -28,3 +28,10 @@ ln -s ${src}/tr.1.remap ${des}/
 ln -s ${src}/va.1.remap ${des}/
 ln -s ${src}/trva.100.remap ${des}/
 ln -s ${src}/item ${des}/
+
+# For grid-and-save-imputation-model 
+des=save-biased-imputation-model
+ln -s ${src}/tr.100.remap ${des}/
+ln -s ${src}/va.1.remap ${des}/
+ln -s ${src}/trva.100.remap ${des}/
+ln -s ${src}/item ${des}/

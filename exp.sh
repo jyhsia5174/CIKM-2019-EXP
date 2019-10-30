@@ -24,12 +24,15 @@ source source-blas.sh
 
 # calc itemwise r
 (cd preprocess/calc-item-r && ./calc.sh)
+(cd preprocess/calc-item-r && ./bias.sh)
 
 # calc-r
 (cd preprocess/calc-r && ./calc.sh)
+(cd preprocess/calc-r && ./bias.sh)
 
 # save imputation model
 (cd preprocess/save-imputation-model && make clean all && ./save-model.sh)
+(cd preprocess/save-biased-imputation-model && make clean all && ./save-model.sh)
 
 # ==================== #
 
@@ -45,6 +48,9 @@ make -C code/IPS clean all&
 make -C code/new-complex clean all&
 make -C code/new-item-r clean all&
 make -C code/new-r clean all&
+make -C code/new-complex-bias clean all&
+make -C code/new-item-r-bias clean all&
+make -C code/new-r-bias clean all&
 wait
 
 # CausE
@@ -71,11 +77,19 @@ wait
 # new r
 (cd code/new-r && ./do-test.sh)
 
+# new-complex
+(cd code/new-complex-bias && ./do-test.sh)
+
+# new item r
+(cd code/new-item-r-bias && ./do-test.sh)
+
+# new r
+(cd code/new-r-bias && ./do-test.sh)
 
 # ==================== #
 
 show-test(){
-for folder in FFM-St FFM-Sc FFM-Sc_St IPS CauseE new-complex new-item-r new-r 
+for folder in FFM-St FFM-Sc FFM-Sc_St IPS CauseE new-complex new-item-r new-r new-complex-bias new-item-r-bias new-r-bias
 do
     echo '===================='
     echo $folder
