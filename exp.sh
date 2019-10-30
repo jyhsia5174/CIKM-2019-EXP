@@ -75,7 +75,7 @@ wait
 # ==================== #
 
 show-test(){
-for folder in CauseE FFM-Sc FFM-Sc_St FFM-St IPS new-complex new-item-r new-r 
+for folder in FFM-St FFM-Sc FFM-Sc_St IPS CauseE new-complex new-item-r new-r 
 do
     echo '===================='
     echo $folder
