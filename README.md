@@ -3,7 +3,7 @@
 
 ## Reproduce usage
 
-- Go to yh.data/split-data folder. Downloads Yahoo music R3 and extract files to that folder.
+Go to yh.data/split-data folder. Downloads Yahoo music R3 and extract files to that folder. (Yahoo! Music ratings for User Selected and Randomly Selected songs, version 1.0 (1.2 MB) at https://webscope.sandbox.yahoo.com/catalog.php?datatype=r )
 - Install open blas
 - ./exp.sh
 
